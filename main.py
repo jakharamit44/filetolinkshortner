@@ -23,7 +23,7 @@ from requests.exceptions import Timeout
 ENDPOINT = "https://ba9816a848610aed92b1359ca60ff37a.r2.cloudflarestorage.com/"
 ACCESS_KEY = "24c2515db578726cd36ea0772946474b"
 SECRET_KEY = "b79167444ad27359f7e587bff2bf72bea9003add5a6411d0ce98276645133e36"
-APP_URL = "https://dumpstore.online"
+APP_URL = "https://apk.moviesdump.com"
 app2 = Client(
     "bot",
     2992000,
@@ -65,7 +65,7 @@ async def adoken(_: app2, m: Message):
             await m.reply_text(f"Currently added shortner api key is: {da}")
             return
         await m.reply_text(
-            "Provide a api key to add for short links from reduxplay.com!")
+            "Provide a api key to add for short links from apk.moviesdump.com!")
         return
     await addtoken(m, data[1])
     return
