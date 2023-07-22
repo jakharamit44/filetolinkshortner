@@ -46,7 +46,7 @@ except RedisError:
 
 async def short_link(slink: str, api: str):
     try:
-        r = get(f"https://reduxplay.com/api?api={api}&url={slink}",
+        r = get(f"https://apk.moviesdump.com/api?api={api}&url={slink}",
                 stream=True,
                 timeout=10)
         response = r.json()
