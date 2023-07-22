@@ -6,6 +6,7 @@ from sys import exit as exiter
 from time import time
 
 import boto3
+import requests
 from pyrogram import Client
 from pyrogram.errors import MessageNotModified, RPCError
 from pyrogram.filters import command, document, photo, poll, private, regex, user, video
@@ -43,6 +44,18 @@ try:
 except RedisError:
     exiter("Your redis server is not alive, please check again!")
 
+async def short_link(url, data):
+    try:
+        response = requests.get(url)
+        response.raise_for_status()  # Check if the request was successful
+        data = response.json()      # Try to parse the response as JSON
+        # Process the JSON data here
+        return data
+    except requests.exceptions.RequestException as e:
+        print("Error in the request:", e)
+    except requests.exceptions.JSONDecodeError as e:
+        print("Error decoding JSON response:", e)
+    return None
 
 async def short_link(slink: str, api: str):
     try:
